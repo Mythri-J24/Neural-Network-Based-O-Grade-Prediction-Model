@@ -52,43 +52,6 @@ The dataset contains 15 student entries with:
 
 ---
 
-## 🚀 Code Implementation
-
-```python
-import numpy as np 
-import pandas as pd 
-import tensorflow as tf 
-from tensorflow.keras.models import Sequential 
-from tensorflow.keras.layers import Dense 
-from sklearn.model_selection import train_test_split 
-
-df = pd.read_csv("students_data.csv")
-
-X = df[['Assignment Score (%)', 'Project Score (%)', 
-        'Mid-Semester Exam (%)', 'Attendance (%)']].values 
-Y = df[['Final Grade (O = 1, Not O = 0)']].values 
-
-X = X / 100.0 
-
-X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.2, random_state=42)
-
-model = Sequential([
-    Dense(8, activation='relu', input_shape=(4,)),
-    Dense(6, activation='relu'),
-    Dense(1, activation='sigmoid')
-])
-
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
-model.fit(X_train, Y_train, epochs=200, validation_data=(X_test, Y_test))
-
-loss, accuracy = model.evaluate(X_test, Y_test)
-print(f"Test Accuracy: {accuracy * 100:.2f}%")
-```
-
----
-
 ## 📈 Output
 
 The model prints prediction accuracy and allows interactive testing with user inputs.
@@ -104,5 +67,5 @@ It provides a foundation for more advanced models in educational data mining.
 
 ## 👤 Author
 
-Mytri J  
-Data Warehousing & Mining — Neural Network Case Study  
+Mythri J  
+Data Warehousing & Mining — Neural Network Case Study
